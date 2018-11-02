@@ -1,6 +1,6 @@
 <?php
 /********************* */
-/* showDepartment.php  */
+/* department.php  */
 /********************* */
 
 // 1. Connect Database
@@ -16,16 +16,24 @@
 
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
+    
     echo "<table border='1'>";
         echo "<tr>";
           echo "<td>รหัสสาขา</td>";
           echo "<td>ชื่อสาขา</td>";
+          echo "<td></td>";
         echo "</tr>";
 
     while($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-          echo "<td>" . $row["DEPT_ID"]. "</td>";
+        echo "<form action='delDepartment.php' method='get'>";
+          //echo "<td>" . $row["DEPT_ID"]. "</td>";
+          echo "<td><input type='text' name='dept_id' value='" . $row["DEPT_ID"]. "'></td>";
           echo "<td>" . $row["DEPT_NAME"] . "</td>";
+          echo "<td>";
+          echo "<input type='submit' value='Delete'>";
+          echo "</td>";
+        echo "</form>";  
         echo "</tr>";
     }
     echo "</table>";
