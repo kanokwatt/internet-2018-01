@@ -20,9 +20,9 @@
     echo "<table border='1'>";
         echo "<tr>";
           echo "<td>รหัสสาขา</td>";
-          echo "<td>ชื่อสาขา</td>";
-          echo "<td></td>";
-          echo "<td></td>";
+          echo "<td colspan='3'>ชื่อสาขา</td>";
+          //echo "<td></td>";
+          //echo "<td></td>";
         echo "</tr>";
 
     while($row = mysqli_fetch_assoc($result)) {
