@@ -18,7 +18,6 @@
       <tr>
         <td>สาขา:</td>
         <td>
-            <input type='text' name='dept_id'>
         <?php
           // 1. Connect
           require("connect.php");
@@ -29,7 +28,12 @@
           // 3. Execute SQL
           $result = mysqli_query($conn, $sql);
 
-
+          // Create Select Box / Dropdown Box of Department
+          echo "<select name='dept_id'>";
+          while($row = mysqli_fetch_assoc($result)) {
+            echo "<option value='".$row['DEPT_ID']."'>".$row['DEPT_NAME']."</option>";
+          }
+          echo "</select>";
         ?>
         </td>
       </tr>  
