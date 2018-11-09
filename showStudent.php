@@ -9,18 +9,32 @@
     require("student.php");
   ?>
   
-  <form action='addDepartment.php' method='get'>
+  <form action='addStudent.php' method='get'>
     <table border='1'>
       <tr>
-        <td>รหัสสาขา:</td>
-        <td><input type='text' name='dept_id' size='5'></td>
+        <td>ชื่อนิสิต:</td>
+        <td><input type='text' name='stu_name'></td>
       </tr>
       <tr>
-        <td>ชื่อสาขา:</td>
-        <td><input type='text' name='dept_name'></td>
+        <td>สาขา:</td>
+        <td>
+            <input type='text' name='dept_id'>
+        <?php
+          // 1. Connect
+          require("connect.php");
+
+          // 2. Select SQL
+          $sql = "SELECT DEPT_ID, DEPT_NAME FROM department";
+
+          // 3. Execute SQL
+          $result = mysqli_query($conn, $sql);
+
+
+        ?>
+        </td>
       </tr>  
       <tr>
-        <td colspan='2'><input type='submit' value='ADD DEPARTMENT'></td>
+        <td colspan='2'><input type='submit' value='ADD STUDENT'></td>
       </tr>            
     </table>
   </form>
