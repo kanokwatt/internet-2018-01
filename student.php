@@ -6,10 +6,34 @@
 // 1. Connect Database
   require("connect.php");
 
-// 2. Select SQL
-  $sql = "SELECT STU_ID, STU_NAME, DEPT_ID FROM student";
+  $search_type = 0;
 
-  //echo $sql;
+  if(isset($_REQUEST["txt_search"]))
+    $txt_search  = $_REQUEST["txt_search"];
+
+  if(isset($_REQUEST["search_type"]))
+    $search_type = $_REQUEST["search_type"];
+
+// 2. Select SQL
+  if($search_type == 1) // Search from STU_ID
+    $sql = "SELECT STU_ID, STU_NAME, DEPT_ID FROM student WHERE STU_ID LIKE '%$txt_search%'";
+
+  else if($search_type == 2) // Search from STU_NAME
+    $sql = "SELECT STU_ID, STU_NAME, DEPT_ID FROM student WHERE STU_NAME LIKE '%$txt_search%'";  
+
+  else if($search_type == 3) // Search from DEPT_ID
+    $sql = "SELECT STU_ID, STU_NAME, DEPT_ID FROM student WHERE DEPT_ID LIKE '%$txt_search%'";  
+
+  else if($search_type == 4){ // Search ALL FIELD
+    $sql = "SELECT STU_ID, STU_NAME, DEPT_ID FROM student WHERE ";
+    $sql .= "STU_ID LIKE '%$txt_search%' OR ";
+    $sql .= "STU_NAME LIKE '%$txt_search%' OR ";
+    $sql .= "DEPT_ID LIKE '%$txt_search%' ";
+  }
+  else
+    $sql = "SELECT STU_ID, STU_NAME, DEPT_ID FROM student";
+
+  echo $sql;
 
 // 3. Execute SQL
   $result = mysqli_query($conn, $sql);
