@@ -14,7 +14,13 @@
 // 3. Execute SQL
   $result = mysqli_query($conn, $sql);
   echo "<form action='student.php' method='get'>";
-    echo "<input type='text' name='txt_Search'>";
+    echo "<input type='text' name='txt_search'>";
+    echo "<select name='search_type'>";
+      echo "<option value='1'>รหัสนิสิต</option>";
+      echo "<option value='2'>ชื่อ</option>";
+      echo "<option value='3'>สาขา</option>";
+      echo "<option value='4'>ทั้งหมด</option>";
+    echo "</select>";
     echo "<input type='submit' value='Search'>";
   echo "</form>";
   if (mysqli_num_rows($result) > 0) {
