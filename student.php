@@ -15,7 +15,7 @@
   $result = mysqli_query($conn, $sql);
   echo "<form action='student.php' method='get'>";
     echo "<input type='text' name='txt_Search'>";
-    echo "<input type='submit' value='Search'">
+    echo "<input type='submit' value='Search'>";
   echo "</form>";
   if (mysqli_num_rows($result) > 0) {
     // output data of each row
