@@ -37,7 +37,7 @@
 
 // 3. Execute SQL
   $result = mysqli_query($conn, $sql);
-  echo "<form action='student.php' method='get'>";
+  echo "<form action='showStudent.php' method='get'>";
     echo "<input type='text' name='txt_search'>";
     echo "<select name='search_type'>";
       echo "<option value='1'>รหัสนิสิต</option>";
