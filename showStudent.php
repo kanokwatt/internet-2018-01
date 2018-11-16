@@ -1,3 +1,10 @@
+<?php
+  session_start();
+
+  if(!isset($_SESSION['OK']))
+    header("Location: login.php");
+?>
+
 <html>
   <head>
     <title>ข้อมูลนิสิต</title>
@@ -7,8 +14,10 @@
   <?php
     // retrieve student 
     require("student.php");
+    echo "Welcome, " . $_SESSION['OK'];
   ?>
   
+  <h1>showStudent.php</h1>
   <form action='addStudent.php' method='get'>
     <table border='1'>
       <tr>
