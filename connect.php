@@ -13,4 +13,5 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 //echo "Connect 555!";
+mysqli_set_charset($conn, "utf8");
 ?>
